@@ -1,5 +1,7 @@
 .profil{
     display: flex;
     flex-direction: row;
-    
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
   }
