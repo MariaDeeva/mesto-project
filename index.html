@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto-project</title>
 </head>
 <body class="page">
 <header class="header">
-    <img class="mesto__logo" src="" alt="лого">   
+    <img class="header__logo" src="./images/Vector.svg" alt="Логотип проекта Место">   
 </header>>
 <main class="content">
     <section class="profil">
@@ -20,42 +21,33 @@
             <button class="button__add"></button>
         </div>
     </section>
-    <section class="cards">
-        <div class="card">
-            <img class="card__image" src="" alt="">
-            <p class="card__name">Картинка 1</p>
-            <button class="card__like"></button>
-        </div>
-        <div class="card">
-            <img class="card__image" src="" alt="">
-            <p class="card__name">Картинка 1</p>
-            <button class="card__like"></button>
-        </div>
-        <div class="card">
-            <img class="card__image" src="" alt="">
-            <p class="card__name">Картинка 1</p>
-            <button class="card__like"></button>
-        </div>
-        <div class="card">
-            <img class="card__image" src="" alt="">
-            <p class="card__name">Картинка 1</p>
-            <button class="card__like"></button>
-        </div>
-        <div class="card">
-            <img class="card__image" src="" alt="">
-            <p class="card__name">Картинка 1</p>
-            <button class="card__like"></button>
-        </div>
-        <div class="card">
-            <img class="card__image" src="" alt="">
-            <p class="card__name">Картинка 1</p>
-            <button class="card__like"></button>
-        </div>
-        <div class="card">
-            <img class="card__image" src="" alt="">
-            <p class="card__name">Картинка 1</p>
-            <button class="card__like"></button>
-        </div>
+    <section class="cards" aria-label="Галерея с фото">
+       <ul class="card__list">
+        <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
+            <h2 class="card__title">Карачаевск</h2>
+            <button class="button button__like" type="button"></button>
+         <li>   
+        <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="button button__like" type="button"></button>
+        <li>
+        <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
+            <h2 class="card__title">Домбай</h2>
+            <button class="button button__like" type="button"></button>
+        <li>     
+        <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="button button__like" type="button"></button>
+        <li>   
+        <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
+            <h2 class="card__title">Домбай</h2>
+            <button class="button button__like" type="button"></button>
+        <li>
+        <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск-Черкесия">
+            <h2 class="card__title">Карачаевск-Черкесия</h2>
+            <button class="button button__like" type="button"></button>
+        <li>                         
+       </ul>
 
     </section>
     <footer class="footer">
