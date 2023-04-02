@@ -13,7 +13,7 @@
 }
 @media screen and (max-width: 880px){
 .button__add{
-    width: calc(100% - 19px*2);
+    width: 100%;
 
     }
 }
