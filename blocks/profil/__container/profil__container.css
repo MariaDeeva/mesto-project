@@ -4,5 +4,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
 }
+@media screen  and (max-width: 880px){
+    .profil__container{
+     flex-direction: column;
+     padding-bottom: 36px;
+    }
+ }

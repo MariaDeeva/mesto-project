@@ -4,3 +4,9 @@
     font-weight: 500;
     padding-right: 18px;
 }
+@media screen and (max-width: 880px){
+    .profil__fullname{
+        font-size: 27px;
+        line-height: 1.21;
+    }
+}
