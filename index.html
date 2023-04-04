@@ -19,7 +19,7 @@
         <div class="profil__info">
             <div class="profil__item">
                 <h1 class="profil__fullname">Жак-Ив Кусто</h1>
-                <button class="button button__edit" type="button"></button>
+                <a href="#popup" class="button button__edit"></a>
              </div>   
             <p class="profil__aboutme">Исследователь океана</p>
         </div>   
@@ -70,12 +70,19 @@
         <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
     </footer>
 </main>
-    <div class="popup">
+<!-- popup_opened-->
+    <div class="popup"  id="popup">
        <div class="popup__container">
-                       
-                
+           <button class="popup__close-button" type="button"></button>
+           <form class="popup__form" name="EditForm">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <div class="popup__information">
+                    <input class="popup__input" type="text" id="popup__name" placeholder="Имя" name="UserName" minlength="2" maxlength="40" value="Жак-Ив Кусто" required>
+                    <input class="popup__input" type="text" id="popup__aboutme" placeholder="О себе" name="AboutMe" minlength="2" maxlength="150" value="Исследователь океана" required>  
+                </div>        
+            <button class="button button__save" type="submit">Сохранить</button>
+           </form>    
         </div>
     </div>      
-    </div>
-</body>
+ </body>
 </html>

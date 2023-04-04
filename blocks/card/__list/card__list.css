@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 880px){
   .card__list{
-      column-gap: 0;
+      justify-content: center;
     }
   }
   
