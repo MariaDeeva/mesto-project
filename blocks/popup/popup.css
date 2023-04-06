@@ -10,4 +10,8 @@
     bottom: 0;
     visibility: hidden;
   /*  pointer-events: none;*/
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
 }

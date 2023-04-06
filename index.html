@@ -13,18 +13,17 @@
 </header>
 <main class="content">
     <section class="profil">
-       <div class="profil__container"> 
-         <img class="profil__avatar" src="./images/image.png" alt="аватарка">
-       
-        <div class="profil__info">
-            <div class="profil__item">
-                <h1 class="profil__fullname">Жак-Ив Кусто</h1>
-                <a href="#popup" class="button button__edit"></a>
-             </div>   
-            <p class="profil__aboutme">Исследователь океана</p>
+        <div class="profil__container"> 
+            <img class="profil__avatar" src="./images/image.png" alt="аватарка">
+                <div class="profil__info">
+                <div class="profil__item">
+                    <h1 class="profil__fullname">Жак-Ив Кусто</h1>
+                    <a href="#popup" class="profil__edit" type="button"></a>
+                </div>   
+                <p class="profil__aboutme">Исследователь океана</p>
+            </div>   
         </div>   
-    </div>   
-        <button class="button button__add"></button>
+        <button class="profil__add" type="button"></button>
     </section>
     <section class="card" aria-label="Галерея с фото">
        <ul class="card__list">
@@ -71,7 +70,7 @@
     </footer>
 </main>
 <!-- popup_opened-->
-    <div class="popup"  id="popup">
+    <div class="popup" id="popup">
        <div class="popup__container">
            <button class="popup__close-button" type="button"></button>
            <form class="popup__form" name="EditForm">
@@ -80,7 +79,7 @@
                     <input class="popup__input" type="text" id="popup__name" placeholder="Имя" name="UserName" minlength="2" maxlength="40" value="Жак-Ив Кусто" required>
                     <input class="popup__input" type="text" id="popup__aboutme" placeholder="О себе" name="AboutMe" minlength="2" maxlength="150" value="Исследователь океана" required>  
                 </div>        
-            <button class="button button__save" type="submit">Сохранить</button>
+                <button class="popup__save" type="submit">Сохранить</button>
            </form>    
         </div>
     </div>      

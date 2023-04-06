@@ -1,7 +1,6 @@
 .button{
-    background-color: #000000;
+    background-color: transparent;
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-position: center;
-    
 }

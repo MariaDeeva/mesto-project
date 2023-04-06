@@ -4,7 +4,7 @@
     height: 19px;
     border: none;
     padding: 0;
-    background-color: #FFFFFF;
+    background-color: transparent;
     object-fit: cover;
 }
 .card__like-button:hover{
