@@ -1,4 +1,4 @@
-.profil__add{
+.profil__add {
     margin: 0;
     padding: 0;
     width: 150px;
@@ -11,12 +11,12 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.profil__add:hover{
+.profil__add:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 @media screen and (max-width: 880px){
-.profil__add{
+.profil__add {
     width: 100%;
-    }
+ }
 }

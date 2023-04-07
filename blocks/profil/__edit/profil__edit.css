@@ -1,4 +1,4 @@
-.profil__edit{
+.profil__edit {
     background-image:url(../../../images/edit-button.svg) ;
     width: 24px;
     height: 24px;
@@ -8,13 +8,13 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.profil__edit:hover{
+.profil__edit:hover {
     opacity: 0.6;
     cursor: pointer;
 }
-@media screen  and (max-width: 880px){
-    .profil__edit{
+@media screen  and (max-width: 880px) {
+    .profil__edit {
         width: 18px;
         height: 18px;
-       }
+    }
  }
