@@ -7,6 +7,6 @@
 }
 @media screen and (max-width: 880px) {
     .profil__item {
-        padding-bottom: 14px;
+        padding: 22.25px 0 14px 0;
     }
 }
