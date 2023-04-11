@@ -3,8 +3,8 @@
     padding: 0;
 }
 
-@media screen and (max-width: 880px){
-    .card{
+@media screen and (max-width: 880px) {
+    .card {
         margin: 36px 19px 0;
       }
     }

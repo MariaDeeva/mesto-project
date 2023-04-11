@@ -1,4 +1,4 @@
-.card__list{
+.card__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, 282px);
     row-gap: 20px;
@@ -12,8 +12,8 @@
     row-gap: 0;
 }*/
 
-@media screen and (max-width: 880px){
-  .card__list{
+@media screen and (max-width: 880px) {
+  .card__list {
       justify-content: center;
     }
   }

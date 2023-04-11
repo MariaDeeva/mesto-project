@@ -1,12 +1,12 @@
-.profil{
+.profil {
     display: flex;
     flex-direction: row;
     padding: 0;
     justify-content: space-between;
     align-items: center;
   }
-  @media screen  and (max-width: 880px){
-     .profil{
+  @media screen and (max-width: 880px) {
+     .profil {
       flex-direction: column;
       padding: 0 19px;
      }
