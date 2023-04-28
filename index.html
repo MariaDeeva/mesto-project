@@ -70,19 +70,32 @@
     <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
 </footer>
 <!-- popup_opened-->
-    <div class="popup" id="popup">
+    <div class="popup" id="popupProfil">
        <div class="popup__container">
-           <button class="popup__close-button" type="button"></button>
+           <button class="popup__close-button popup__close-button_profil" type="button"></button>
            <form class="popup__form" name="EditForm">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <div class="popup__information">
-                    <input class="popup__input" type="text" id="popup__name" placeholder="Имя" name="UserName" minlength="2" maxlength="40" value="Жак-Ив Кусто" required>
-                    <input class="popup__input" type="text" id="popup__aboutme" placeholder="О себе" name="AboutMe" minlength="2" maxlength="150" value="Исследователь океана" required>  
+                    <input class="popup__input" type="text" id="popup__name" placeholder="Имя" name="UserName" minlength="2" maxlength="40">
+                    <input class="popup__input" type="text" id="popup__aboutme" placeholder="О себе" name="AboutMe" minlength="2" maxlength="150">  
                 </div>        
                 <button class="popup__save" type="submit">Сохранить</button>
-           </form>    
+           </form> 
         </div>
-    </div>    
+    </div> 
+    <div class="popup" id="popupCard">
+        <div class="popup__container">
+            <button class="popup__close-button popup__close-button_card" type="button"></button>
+           <form class="popup__form" name="NewForm">
+                 <h2 class="popup__title">Новое место</h2>
+                 <div class="popup__information">
+                     <input class="popup__input" type="text" id="card__name" placeholder="Название" name="CardName" minlength="2" maxlength="40">
+                     <input class="popup__input" type="text" id="card__url" placeholder="Ссылка на картинку" name="CardURL" minlength="2" maxlength="500">  
+                 </div>        
+                 <button class="popup__save" type="submit">Создать</button>
+            </form> 
+         </div>
+     </div>    
     <script src="script.js"></script>  
  </body>
 </html>
