@@ -27,7 +27,8 @@
     </section>
     <section class="card" aria-label="Галерея с фото">
        <ul class="card__list">
-            <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
+        <!--
+         <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
                 <div class="card__info">
                     <h2 class="card__title">Карачаевск</h2>
                     <button class="card__like-button" type="button"></button>
@@ -62,15 +63,16 @@
                     <h2 class="card__title">Карачаево-Черкесия</h2>
                     <button class="card__like-button" type="button"></button>
                 </div> 
-            </li>                         
+            </li>    
+            -->                     
        </ul>
      </section>
 </main>
 <footer class="footer">
     <p class="footer__copyright">©&nbsp;2022 Mesto Russia</p>
 </footer>
-<!-- popup_opened-->
-    <div class="popup" id="popupProfil">
+
+    <div class="popup popup__profil">
        <div class="popup__container">
            <button class="popup__close-button popup__close-button_profil" type="button"></button>
            <form class="popup__form" name="EditForm">
@@ -83,7 +85,7 @@
            </form> 
         </div>
     </div> 
-    <div class="popup" id="popupCard">
+    <div class="popup popup__card">
         <div class="popup__container">
             <button class="popup__close-button popup__close-button_card" type="button"></button>
            <form class="popup__form" name="NewForm">
@@ -96,6 +98,15 @@
             </form> 
          </div>
      </div>    
-    <script src="script.js"></script>  
+    <template id="card__template">
+        <li class="card__item">
+            <img class="card__image" src="#" alt="#">
+            <div class="card__info">
+                <h2 class="card__title"></h2>
+                <button class="card__like-button" type="button"></button>
+            </div>
+        </li>     
+   </template>
+        <script src="index.js"></script>  
  </body>
 </html>
