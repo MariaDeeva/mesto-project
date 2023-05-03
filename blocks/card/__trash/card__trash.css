@@ -1,0 +1,20 @@
+.card__trash {
+    min-width: 18px;
+    min-height: 19px;
+    background-image: url(../../../images/Group.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid red;
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    position: absolute;
+    transform: translate(244px, 20px);
+    z-index: 1;
+}
+
+.card__trash:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}

@@ -72,7 +72,7 @@ const initialCards = [
 ];
 const card = document.querySelector(".card__list");
 const cardTemplate = document.querySelector("#card__template");
-const createCard = function (cardAdd) {
+const createCard = (cardAdd)=> {
   const card = cardTemplate.content
     .querySelector(".card__item")
     .cloneNode(true);
@@ -92,10 +92,10 @@ const createCard = function (cardAdd) {
   });*/
 
   const likeCardButton = card.querySelector(".card__like-button");
-  /*const deleteElement = element.querySelector(".element__delete");*/
+  const deliteCardButton = card.querySelector(".card__trash");
 
   const handleLike = () => {
-    likeElement.classList.toggle("card__like-button_active");
+    likeCardButton.classList.toggle("card__like-button_active");
   };
 
   const handleDelete = () => {
@@ -103,19 +103,19 @@ const createCard = function (cardAdd) {
   };
 
   likeCardButton.addEventListener("click", handleLike);
- /*  deleteElement.addEventListener("click", handleDelete);*/
+  deliteCardButton.addEventListener("click", handleDelete);
 
   return card;
 };
 
-const renderCardPre = (card) => {
-  card.prepend(card);
+const renderCardPre = (elem) => {
+  card.prepend(elem);
 };
 
-const renderCardApp = (card) => {
-  card.append(card)
+const renderCardApp = (elem) => {
+  card.append(elem)
 };
 
-initialCards.forEach((card) => {
-  renderCardApp(createCard(card));
+initialCards.forEach((elem) => {
+  renderCardApp(createCard(elem));
 });
