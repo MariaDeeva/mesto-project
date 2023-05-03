@@ -32,7 +32,7 @@ formPopup.addEventListener('submit', function addName(evt) {
   popupProfil.classList.remove('popup_opened');
 });
 
-//Открытие второго попапа добавления карточки
+//Открытие второго попапа для добавления карточки
 function popupOpenCard() {
   popupNewCard.classList.add('popup_opened');
 }
@@ -40,7 +40,9 @@ addCardButton.addEventListener('click', popupOpenCard);
 closeCardButton.addEventListener('click', function () {
   popupNewCard.classList.remove('popup_opened');
 });
-// Работа с карчточками
+
+
+// Работа с карточками
 
 const initialCards = [
   {
@@ -68,4 +70,52 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
- 
+const card = document.querySelector(".card__list");
+const cardTemplate = document.querySelector("#card__template");
+const createCard = function (cardAdd) {
+  const card = cardTemplate.content
+    .querySelector(".card__item")
+    .cloneNode(true);
+
+  const cardTitle = card.querySelector(".card__title");
+  const cardImage = card.querySelector(".card__image");
+
+  cardTitle.textContent = cardAdd.name;
+  cardImage.src = cardAdd.link;
+  cardImage.alt = cardAdd.name;
+
+  /*cardImage.addEventListener("click", () => {
+    openPopup(handlePopupImage);
+    popupImage.src = cardAdd.link;
+    popupImage.alt = cardAdd.name;
+    popupName.textContent = cardAdd.name;
+  });*/
+
+  const likeCardButton = card.querySelector(".card__like-button");
+  /*const deleteElement = element.querySelector(".element__delete");*/
+
+  const handleLike = () => {
+    likeElement.classList.toggle("card__like-button_active");
+  };
+
+  const handleDelete = () => {
+    card.remove();
+  };
+
+  likeCardButton.addEventListener("click", handleLike);
+ /*  deleteElement.addEventListener("click", handleDelete);*/
+
+  return card;
+};
+
+const renderCardPre = (card) => {
+  card.prepend(card);
+};
+
+const renderCardApp = (card) => {
+  card.append(card)
+};
+
+initialCards.forEach((card) => {
+  renderCardApp(createCard(card));
+});

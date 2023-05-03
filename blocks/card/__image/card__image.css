@@ -1,3 +1,7 @@
-.card__image{
+.card__image {
     object-fit: cover;
+    width: 282px;
+    height: 282px;
+    cursor: pointer;
+
 }
