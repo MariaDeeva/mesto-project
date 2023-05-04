@@ -27,7 +27,7 @@
             </div>
             <button class="profil__add" type="button"></button>
         </section>
-    
+
         <section class="card" aria-label="Галерея с фото">
             <ul class="card__list">
                 <!--
@@ -77,7 +77,7 @@
 
     <div class="popup popup__profil">
         <div class="popup__container">
-            <button class="popup__close-button popup__close-button_profil" type="button"></button>
+            <button class="popup__close-button" type="button"></button>
             <form class="popup__form" id='EditForm' name="EditForm">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <div class="popup__information">
@@ -92,14 +92,14 @@
     </div>
     <div class="popup popup__card-new">
         <div class="popup__container">
-            <button class="popup__close-button popup__close-button_card" type="button"></button>
-            <form class="popup__form popup__form_newcard" id ='NewCard' name="NewForm">
+            <button class="popup__close-button" type="button"></button>
+            <form class="popup__form" id='NewCard' name="NewCard">
                 <h2 class="popup__title">Новое место</h2>
                 <div class="popup__information">
-                    <input class="popup__input popup__input_card-name" type="text" id="card__name" placeholder="Название" name="CardName"
+                    <input class="popup__input" type="text" id="card__name" placeholder="Название" name="CardName"
                         minlength="2" maxlength="40">
                     <input class="popup__input" type="text" id="card__url" placeholder="Ссылка на картинку"
-                        name="CardURL" minlength="2" maxlength="500">
+                        name="CardURL" minlength="20" maxlength="500">
                 </div>
                 <button class="popup__save" type="submit">Создать</button>
             </form>
@@ -107,7 +107,7 @@
     </div>
     <div class="popup popup__card-open">
         <div class="popup__container-card">
-            <button class="popup__close-button popup__close-button_card-open" type="button"></button>
+            <button class="popup__close-button" type="button"></button>
             <img class="popup__card-image" src="#" alt="#">
             <h2 class="popup__card-title"></h2>
         </div>
@@ -117,6 +117,7 @@
             <button class="card__trash" type="button"></button>
             <img class="card__image" src="#" alt="#">
             <div class="card__info">
+
                 <h2 class="card__title"></h2>
                 <button class="card__like-button" type="button"></button>
             </div>

@@ -1,14 +1,14 @@
 .card__trash {
-    min-width: 18px;
-    min-height: 19px;
-    background-image: url(../../../images/Trash.png);
+    width: 18px;
+    height: 19px;
     background-color: transparent;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid red;
+    border: none;
+    background-image: url(../../../../images/Trash.png);
     margin: 0;
     padding: 0;
-    background-position: center;
     position: absolute;
     transform: translate(244px, 20px);
     z-index: 5;
