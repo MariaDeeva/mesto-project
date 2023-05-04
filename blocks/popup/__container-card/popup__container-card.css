@@ -1,0 +1,7 @@
+.popup__container-card {
+    margin: 0;
+    /* height: 330px;*/
+    position: relative;
+    background-color: transparent;
+    /* margin: 195px auto;*/
+}
