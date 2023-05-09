@@ -1,6 +1,6 @@
 const popupProfil = document.querySelector('.popup__profil');
 const editProfilButton = document.querySelector('.profil__edit');
-const closeProfilButton = document.querySelector('#closeButtonProfil');
+//const closeProfilButton = document.querySelector('#closeButtonProfil');
 const popupContainer = document.querySelector('.popup__container');
 const nameProfilPopup = popupProfil.querySelector('#popup__name');
 const abouMeProfilPoup = popupProfil.querySelector('#popup__aboutme');
@@ -11,7 +11,7 @@ const infoProfil = popupProfil.querySelector('#EditForm');
 const newCardPopup = document.querySelector('.popup__card-new');
 const newCardFormPopup = document.querySelector('#NewCard');
 const addCardButton = document.querySelector('.profil__add');
-const closeCardButton = newCardPopup.querySelector('#closeButtonCardNew');
+//const closeCardButton = newCardPopup.querySelector('#closeButtonCardNew');
 
 
 const cardList = document.querySelector('.card__list');
@@ -19,7 +19,7 @@ const cardTemplate = document.querySelector("#card__template");
 
 const popupImage = document.querySelector('.popup__card-open')
 
-const closeImageButton = popupImage.querySelector('#closeButtonCardOpen');
+//const closeImageButton = popupImage.querySelector('#closeButtonCardOpen');
 const imagePopupCard = popupImage.querySelector('.popup__card-image');
 const titlePopupCard = popupImage.querySelector('.popup__card-title');
 
@@ -32,10 +32,16 @@ function openPopup(popupOpen) {
   popupOpen.classList.add('popup_opened');
 }
 //Закрытие всех попав 
+const closeButtons = document.querySelectorAll('.popup__close-button');
+
 function closePopup(popupClose) {
   popupClose.classList.remove('popup_opened');
 }
 
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 //Изменение профиля 
 function editProfil() {
@@ -117,9 +123,9 @@ function createCard(cardAdd) {
     imagePopupCard.alt = cardAdd.name;
     titlePopupCard.textContent = cardAdd.name;
   });
-  closeImageButton.addEventListener('click', () => {
+  /*closeImageButton.addEventListener('click', () => {
     closePopup(popupImage);
-  });
+  });*/
   return card;
 }
 
@@ -143,9 +149,9 @@ addCardButton.addEventListener('click', () => {
 });
 
 
-closeCardButton.addEventListener('click', () => {
+/*closeCardButton.addEventListener('click', () => {
   closePopup(newCardPopup);
-});
+});*/
 
 
 
