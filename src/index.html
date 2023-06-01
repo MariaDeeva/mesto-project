@@ -30,44 +30,6 @@
 
         <section class="card" aria-label="Галерея с фото">
             <ul class="card__list">
-                <!--
-         <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
-                <div class="card__info">
-                    <h2 class="card__title">Карачаевск</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </li>   
-            <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
-                <div class="card__info">
-                    <h2 class="card__title">Гора Эльбрус</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>
-            </li> 
-            <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
-                <div class="card__info">
-                    <h2 class="card__title">Домбай</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div> 
-            </li>     
-            <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
-                <div class="card__info">
-                    <h2 class="card__title">Гора Эльбрус</h2>
-                    <button class="hover card__like-button" type="button"></button>
-                </div>    
-            </li>   
-            <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
-                <div class="card__info">  
-                    <h2 class="card__title">Домбай</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div>    
-            </li> 
-            <li class="card__item"><img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск-Черкесия">
-                <div class="card__info">
-                    <h2 class="card__title">Карачаево-Черкесия</h2>
-                    <button class="card__like-button" type="button"></button>
-                </div> 
-            </li>    
-            -->
             </ul>
         </section>
     </main>
@@ -78,13 +40,15 @@
     <div class="popup popup__profil">
         <div class="popup__container">
             <button class="popup__close-button" id="closeButtonProfil" type="button"></button>
-            <form class="popup__form" id='EditForm' name="EditForm">
+            <form class="popup__form" id='EditForm' name="EditForm" novalidate>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <div class="popup__information">
                     <input class="popup__input" type="text" id="popup__name" placeholder="Имя" name="UserName"
-                        minlength="2" maxlength="40">
+                        minlength="2" maxlength="40" required>
+                    <span class="popup__input-error"></span>
                     <input class="popup__input" type="text" id="popup__aboutme" placeholder="О себе" name="AboutMe"
-                        minlength="2" maxlength="150">
+                        minlength="2" maxlength="200" required>
+                    <span class="popup__input-error popup__text-error"></span>
                 </div>
                 <button class="popup__save" type="submit">Сохранить</button>
             </form>
@@ -98,7 +62,7 @@
                 <div class="popup__information">
                     <input class="popup__input" type="text" id="card__name" placeholder="Название" name="CardName"
                         minlength="2" maxlength="40">
-                    <input class="popup__input" type="text" id="card__url" placeholder="Ссылка на картинку"
+                    <input class="popup__input" type="url" id="card__url" placeholder="Ссылка на картинку"
                         name="CardURL" minlength="20" maxlength="500">
                 </div>
                 <button class="popup__save" type="submit">Создать</button>
