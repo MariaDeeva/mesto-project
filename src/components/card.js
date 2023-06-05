@@ -1,4 +1,4 @@
-import {openPopup, closePopup} from './utils.js';
+import {openPopup, closePopup} from './modal.js';
 const initialCards = [
   {
     name: 'Подводный мир',
@@ -26,14 +26,10 @@ const initialCards = [
   }
 ];
 const popupImage = document.querySelector('.popup__card-open');
-const newCardPopup = document.querySelector('.popup__card-new');
-const newCardFormPopup = document.querySelector('#NewCard');
-const addCardButton = document.querySelector('.profil__add');
-
 const imagePopupCard = popupImage.querySelector('.popup__card-image');
 const titlePopupCard = popupImage.querySelector('.popup__card-title');
-const nameNewCard = newCardFormPopup.querySelector('#card__name');
-const linkNewCard = newCardFormPopup.querySelector('#card__url');
+
+
 const cardList = document.querySelector('.card__list');
 const cardTemplate = document.querySelector("#card__template");
 
@@ -80,20 +76,6 @@ const cardTemplate = document.querySelector("#card__template");
   initialCards.forEach(function (elm) {
     renderCardPrepend(createCard(elm));
   });
-  addCardButton.addEventListener('click', () => {
-    openPopup(newCardPopup);
-  });
  
- function newCardAdd(evt) {
-   evt.preventDefault();
-   const name = nameNewCard.value;
-   const link = linkNewCard.value;
-   const cardAdd = { name, link };
-   renderCardPrepend(createCard(cardAdd));
-   nameNewCard.value = '';
-   linkNewCard.value = '';
-   closePopup(newCardPopup);
- };
-  newCardFormPopup.addEventListener('submit', newCardAdd);
 
-export {initialCards}
+export {createCard, renderCardPrepend}

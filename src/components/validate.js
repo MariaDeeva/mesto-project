@@ -16,12 +16,12 @@ const validConfig = {
 }*/
 
 function disableButton(button, validConfig) {
-    button.setAttribute('disable', '');
+    button.setAttribute('disabled', '');
     button.classList.add(validConfig.inactiveButtonClass);
 }
 
 function enableButton(button, validConfig) {
-    button.removeAttribute('disable');
+    button.removeAttribute('disabled');
     button.classList.remove(validConfig.inactiveButtonClass);
 }
 function toggleButtonState(form, validConfig) {
@@ -90,4 +90,4 @@ function enableValidation(validConfig) {
 
 enableValidation(validConfig);
 
-export {enableValidation}
+export {enableValidation, validConfig, toggleButtonState}
