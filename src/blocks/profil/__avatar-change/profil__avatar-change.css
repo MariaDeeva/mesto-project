@@ -1,0 +1,13 @@
+.profil__avatar-change{
+    background-image: url(../../../images/change.svg);
+    background-color: transparent;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
