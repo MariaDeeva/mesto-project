@@ -1,8 +1,11 @@
 import {openPopup, closePopup} from './modal.js';
-const initialCards = [
+import {configApi, addLike, deleteLike} from './api.js';
+
+/*const initialCards = [
   {
     name: 'Подводный мир',
-    link: 'https://images.unsplash.com/photo-1682687982107-14492010e05e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+    link: 'https://images.unsplash.com/photo-1682687982107-14492010e05e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    likes: 1
   },
   {
     name: 'Санторини',
@@ -24,30 +27,48 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-];
+];*/
 const popupImage = document.querySelector('.popup__card-open');
 const imagePopupCard = popupImage.querySelector('.popup__card-image');
 const titlePopupCard = popupImage.querySelector('.popup__card-title');
-
-
 const cardList = document.querySelector('.card__list');
 const cardTemplate = document.querySelector("#card__template");
 
-
-  function createCard(cardAdd) {
+//создание и редактировние карточки 
+  function createCard(cardAdd, userId) {
     const card = cardTemplate.content.querySelector('.card__item').cloneNode(true);
     const cardTitle = card.querySelector(".card__title");
     const cardImage = card.querySelector(".card__image");
     cardTitle.textContent = cardAdd.name;
     cardImage.src = cardAdd.link;
     cardImage.alt = cardAdd.name;
-  
-    // Лайки 
     const likeButton = card.querySelector('.card__like-button');
-  
-    likeButton.addEventListener('click', function () {
-      likeButton.classList.toggle('card__like-button_active');
+    const likeNumber = card.querySelector('.card__like-number');
+    likeNumber.textContent = cardAdd.likes.length;
+
+  if (cardAdd.likes.some(like =>like._id === userId)){
+      likeButton.classList.add('card__like-button_active');
+    }
+    likeNumber.textContent = cardAdd.likes.length;
+    likeButton.addEventListener('click', function (evt) {
+      if(evt.target.classList.contains('card__like-button_active')){
+        deleteLike(configApi, cardAdd)
+        .then((cardUpd) =>{
+          evt.target.classList.remove('card__like-button_active');
+          likeNumber.textContent = cardUpd.likes.length;
+        })
+        .catch((err)=> console.log(`Ошибка: ${err}`));
+      }
+      else {
+        addLike(configApi, cardAdd)
+        .then((cardUpd)=>{
+          evt.target.classList.add('card__like-button_active');
+          likeNumber.textContent = cardUpd.likes.length;
+        })
+        .catch((err)=> console.log(`Ошибка: ${err}`));
+      }
     });
+   
   
     //удаление 
     const deleteButton = card.querySelector('.card__trash');
@@ -67,15 +88,15 @@ const cardTemplate = document.querySelector("#card__template");
     });*/
     return card;
   }
-   
+   //перебор карточек
   const renderCardPrepend = function (elm) {
     cardList.prepend(elm);
     return elm;
   }
   
-  initialCards.forEach(function (elm) {
+ /* initialCards.forEach(function (elm) {
     renderCardPrepend(createCard(elm));
-  });
+  });*/
  
 
-export {createCard, renderCardPrepend}
+export {createCard, renderCardPrepend, cardList}

@@ -1,4 +1,4 @@
-//Изменение профиля 
+
 const closeButtons = document.querySelectorAll('.popup__close-button');
  
 function openPopup(popupOpen) {
