@@ -6,7 +6,7 @@ function openPopup(popupOpen) {
      // popupClose.addEventListener('click',closePopupClick);
   }
   //Закрытие всех попав 
-   
+  
   function closePopup(popupClose) {
     popupClose.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupEscape);
