@@ -17,7 +17,7 @@
             <div class="profil__container">
             <div class="profil__avatar-edite">
                 <img class="profil__avatar" src="<%=require('./images/image.png')%>" alt="аватарка">
-                <div class="profil__avatar-change"></div>
+                <button class="profil__avatar-change" type="button"></button>
             </div>
                 <div class="profil__info">
                     <div class="profil__item">
@@ -52,7 +52,7 @@
                     required minlength="2" maxlength="200">
                     <span class="popup__text-error" id="popup__aboutme-error"></span>
                 </div>
-                <button class="popup__save" type="submit">Сохранить</button>
+                <button class="popup__save popup__save_submit" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
@@ -69,7 +69,7 @@
                     required  name="CardURL" required>
                     <span class="popup__text-error" id="card__url-error"></span>    
                 </div>
-                <button class="popup__save" type="submit">Создать</button>
+                <button class="popup__save popup__save_card" type="submit">Создать</button>
             </form>
         </div>
     </div>
@@ -86,11 +86,11 @@
             <form class="popup__form" id='AvatarForm' name="AvatarForm">
                 <h2 class="popup__title">Обновить аватар</h2>
                 <div class="popup__information">
-                    <input class="popup__input" type="url" id="popup__avatar" placeholder="Ссылка на аватар" name="AvatarUrl"
+                    <input class="popup__input popup_input_avatar" type="url" id="popup__avatar" placeholder="Ссылка на аватар" name="AvatarUrl"
                     required>
                     <span class="popup__text-error" id="popup__avatar-error"></span>
                 </div>
-                <button class="popup__save" type="submit">Сохранить</button>
+                <button class="popup__save popup__save_avatar" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
@@ -101,7 +101,7 @@
                 <h2 class="popup__title">Вы уверены?</h2>
                 <button class="popup__save" type="submit">Да</button>
             </form>
-        </div>
+        </div>f
     </div>
     <template id="card__template">
         <li class="card__item">
