@@ -12,7 +12,8 @@ module.exports = {
     filename: 'main.js',
     publicPath: '',
   },
-   mode: 'development',
+    devtool: 'eval-source-map',
+    mode: 'development',
   devServer: {
     static: path.resolve(__dirname, './dist'),
     open: true,

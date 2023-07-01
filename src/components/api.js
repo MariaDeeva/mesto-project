@@ -1,5 +1,3 @@
-
-
 export const configApi = {
     baseURL: 'https://nomoreparties.co/v1/plus-cohort-25',
     headers: {
@@ -9,11 +7,7 @@ export const configApi = {
 };
 
 export class Api {
-    constructor({ baseURL, headers }) {
-        this._baseURL = baseURL;
-        this._headers = headers;
-    }
-    _onResponse(res) {
+    #onResponse(res) {
         if (res.ok) {
             return res.json();
         }
@@ -21,16 +15,21 @@ export class Api {
             return Promise.reject("Ошибка");
         }
     }
-   
+    
+    constructor({ baseURL, headers }) {
+        this._baseURL = baseURL;
+        this._headers = headers;
+    }
+    
     //Работа с профилем
     //1. Профиль 
     getUserInfo() {
         return fetch(`${this._baseURL}/users/me`, {
             method: 'GET',
             headers: this._headers
-        }).then(this._onResponse);
-
+        }).then(this.#onResponse);
     } 
+    
     //2. Изменение
     editProfilApi(nameProfilPopup, abouMeProfilPopup) {
         return fetch(`${this._baseURL}/users/me`, {
@@ -41,7 +40,7 @@ export class Api {
                 about: abouMeProfilPopup.value,
             })
         })
-            .then(this._onResponse)
+            .then(this.#onResponse)
     }
     //Работа с карточками
     //1. Карточка
@@ -50,7 +49,7 @@ export class Api {
             method: 'GET',
             headers: this._headers
         })
-            .then(this._onResponse)
+            .then(this.#onResponse)
     }
 
     // 2. Добавление карточки
@@ -63,7 +62,7 @@ export class Api {
                 link: linkNewCard.value,
             }),
         })
-            .then(this._onResponse)
+            .then(this.#onResponse)
     }
     //3.Удаление карточки 
     deleteCardsApi(cardId) {
@@ -72,7 +71,7 @@ export class Api {
             headers: this._headers,
 
         })
-            .then(this._onResponse)
+            .then(this.#onResponse)
     }
 
     //Лайки 
@@ -82,7 +81,7 @@ export class Api {
             method: "PUT",
             headers: this._headers,
         })
-            .then(this._onResponse)
+            .then(this.#onResponse)
     }
 
     deleteLikeApi(cardId) {
@@ -90,7 +89,7 @@ export class Api {
             method: 'DELETE',
             headers: this._headers,
         })
-            .then(this.onResponse)
+            .then(this.#onResponse)
     }
 
     //Аватар
@@ -101,7 +100,7 @@ export class Api {
             body: JSON.stringify({
                 avatar: avatarSrcPopup.value
             }),
-        }).then(this._onResponse)
+        }).then(this.#onResponse)
     }
 }
 

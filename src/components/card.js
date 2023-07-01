@@ -3,7 +3,7 @@ import {Api, configApi} from './api.js';
 //import {addLikeApi, deleteLikeApi, deleteCardsApi } from './api.js';
 import {popupImage,imagePopupCard, titlePopupCard, cardList, cardTemplate} from './constant.js';
 
-//const api = new Api(configApi);
+const api = new Api(configApi);
 
 //создание и редактировние карточки 
 function createCard(cardAdd, userId) {
@@ -25,7 +25,7 @@ function createCard(cardAdd, userId) {
       deleteLike(cardAdd._id,likeNumber, likeButton);
     }
     else{
-      addLike(cardAdd._id, likeNumber,likeButton);
+      addLike(cardAdd._id, likeNumber, likeButton);
     }
 });
 
@@ -66,7 +66,6 @@ function deleteCard(cardId, cardElm) {
 //добавление удаление карточки ассинхрон
 function addLike(cardId, number, likeElm) {
   api.addLikeApi(cardId)
- //addLikeApi(cardId)
     .then((elm) => {
       number.textContent = elm.likes.length;
       likeElm.classList.add("card__like-button_active");

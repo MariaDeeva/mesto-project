@@ -13,10 +13,11 @@ let userId;
 
 const api = new Api(configApi);
 console.log(api);
+
 //Массив с сервера карточки
 Promise.all([api.getUserInfo(), api.getCards()])
   .then(([users, cards]) => {
-   nameProfil.textContent = users.name;
+    nameProfil.textContent = users.name;
     abouMeProfil.textContent = users.about;
     avatarProfil.src = users.avatar;
     userId =users._id;
@@ -25,7 +26,7 @@ Promise.all([api.getUserInfo(), api.getCards()])
     cardList.prepend(createCard(element, userId));
     });
   })
-  .catch((err) => console.log(`Ошибка1: ${err}`));
+  .catch((err) => console.log(`Ошибка: ${err}`));
 
 
 addCardButton.addEventListener('click', () => {
@@ -35,21 +36,22 @@ addCardButton.addEventListener('click', () => {
 });
 
 function newCardAddSubmit(evt){
+  
   buttonSaveCard.textContent = "Сохранение...";
   evt.preventDefault();
-  addCards(nameNewCard, linkNewCard)
-  .then((cardAdd)=>{
-    renderCardPrepend(createCard(cardAdd));
-    console.log(cardAdd);
-    closePopup(newCardPopup);
-    newCardFormPopup.reset();
-    location.reload();
-  })
-  .catch((err) => console.log(`Ошибка: ${err}`))
-  .finally(() => {
-   buttonSaveCard.textContent = "Сохранить";
-   
-  })
+  
+  api.addCards(nameNewCard, linkNewCard)
+    .then((cardAdd)=>{
+      renderCardPrepend(createCard(cardAdd));
+      console.log(cardAdd);
+      closePopup(newCardPopup);
+      newCardFormPopup.reset();
+      location.reload();
+    })
+    .catch((err) => console.log(`Ошибка: ${err}`))
+    .finally(() => {
+      buttonSaveCard.textContent = "Сохранить";
+    })
 }
 
 newCardFormPopup.addEventListener('submit', newCardAddSubmit);
@@ -70,7 +72,7 @@ function editProfil() {
 function editProfilSubmit(evt) {
   evt.preventDefault();
   buttonSaveProfil.textContent = "Сохранение...";
-  editProfilApi(nameProfilPopup, abouMeProfilPopup)
+  api.editProfilApi(nameProfilPopup, abouMeProfilPopup)
     .then((user) => {
       nameProfil.textContent = user.name;
       abouMeProfil.textContent = user.about;
@@ -89,21 +91,18 @@ buttonOpenAvatar.addEventListener('click', ()=>{
   openPopup(avatarPopup);
 })
 function editAvatar(evt){
-  buttonSaveAvatar.textContent = 'Сохраняем...';
-  evt.preventDefault();
-  changeAvatar(avatarSrcPopup)
+    buttonSaveAvatar.textContent = 'Сохраняем...';
+    evt.preventDefault();
+    api.changeAvatar(avatarSrcPopup)
   .then((profil)=>{
     avatarProfil.src = profil.avatar;
     closePopup(avatarPopup);
     avatarProfilForm.reset();
-  }).catch((err) => console.log(`Ошибка: ${err}`))
+  })
+  .catch((err) => console.log(`Ошибка: ${err}`))
   .finally(()=>{
     buttonSaveAvatar.textContent = 'Сохранить';
   })
 }
 
 avatarProfilForm.addEventListener("submit", editAvatar);
-
-
-
-
