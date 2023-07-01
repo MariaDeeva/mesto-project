@@ -2,7 +2,8 @@ import './pages/index.css';
 import { createCard, renderCardPrepend, cardList} from './components/card.js';
 import { toggleButtonState, validConfig } from './components/validate.js';
 import { openPopup, closePopup } from './components/modal.js';
-import { getCards, getUserInfo, editProfilApi,addCards,changeAvatar } from './components/api.js';
+import {configApi, Api } from './components/api.js';
+//import { configApi, Api, getCards, getUserInfo, editProfilApi,addCards,changeAvatar } from './components/api.js';
 import {editProfilButton, popupProfil, nameProfilPopup,abouMeProfilPopup, nameProfil, 
         abouMeProfil, infoProfil, newCardPopup, newCardFormPopup, nameNewCard, linkNewCard, addCardButton,
         avatarProfil, buttonSaveProfil, buttonSaveCard, avatarPopup, avatarProfilForm,buttonSaveAvatar,
@@ -10,10 +11,12 @@ import {editProfilButton, popupProfil, nameProfilPopup,abouMeProfilPopup, namePr
 } from './components/constant.js';
 let userId;
 
+const api = new Api(configApi);
+console.log(api);
 //Массив с сервера карточки
-Promise.all([getUserInfo(), getCards()])
+Promise.all([api.getUserInfo(), api.getCards()])
   .then(([users, cards]) => {
-    nameProfil.textContent = users.name;
+   nameProfil.textContent = users.name;
     abouMeProfil.textContent = users.about;
     avatarProfil.src = users.avatar;
     userId =users._id;
@@ -22,7 +25,7 @@ Promise.all([getUserInfo(), getCards()])
     cardList.prepend(createCard(element, userId));
     });
   })
-  .catch((err) => console.log(`Ошибка: ${err}`));
+  .catch((err) => console.log(`Ошибка1: ${err}`));
 
 
 addCardButton.addEventListener('click', () => {

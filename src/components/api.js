@@ -1,101 +1,109 @@
+
+
 export const configApi = {
     baseURL: 'https://nomoreparties.co/v1/plus-cohort-25',
     headers: {
         authorization: '14392650-b976-4fa0-a527-612dfe2e913d',
         'Content-Type': 'application/json'
     }
-}
+};
 
-function onResponse(res) {
-    if (res.ok) {
-        return res.json();
+export class Api {
+    constructor({ baseURL, headers }) {
+        this._baseURL = baseURL;
+        this._headers = headers;
     }
-    else {
-        return Promise.reject("Ошибка");
+    _onResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        else {
+            return Promise.reject("Ошибка");
+        }
     }
-}
+   
+    //Работа с профилем
+    //1. Профиль 
+    getUserInfo() {
+        return fetch(`${this._baseURL}/users/me`, {
+            method: 'GET',
+            headers: this._headers
+        }).then(this._onResponse);
 
-//Работа с профилем
-//1. Профиль 
-export function getUserInfo() {
-    return fetch(`${configApi.baseURL}/users/me`, {
-        method: 'GET',
-        headers: configApi.headers
-    })
-        .then(onResponse)
-}
-
-//2. Изменение
-export function editProfilApi(nameProfilPopup, abouMeProfilPopup) {
-    return fetch(`${configApi.baseURL}/users/me`, {
-        method: 'PATCH',
-        headers: configApi.headers,
-        body: JSON.stringify({
-            name: nameProfilPopup.value,
-            about: abouMeProfilPopup.value,
+    } 
+    //2. Изменение
+    editProfilApi(nameProfilPopup, abouMeProfilPopup) {
+        return fetch(`${this._baseURL}/users/me`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({
+                name: nameProfilPopup.value,
+                about: abouMeProfilPopup.value,
+            })
         })
-    })
-        .then(onResponse)
+            .then(this._onResponse)
+    }
+    //Работа с карточками
+    //1. Карточка
+    getCards() {
+        return fetch(`${this._baseURL}/cards`, {
+            method: 'GET',
+            headers: this._headers
+        })
+            .then(this._onResponse)
+    }
+
+    // 2. Добавление карточки
+    addCards(nameNewCard, linkNewCard) {
+        return fetch(`${this._baseURL}/cards`, {
+            method: 'POST',
+            headers: this._headers,
+            body: JSON.stringify({
+                name: nameNewCard.value,
+                link: linkNewCard.value,
+            }),
+        })
+            .then(this._onResponse)
+    }
+    //3.Удаление карточки 
+    deleteCardsApi(cardId) {
+        return fetch(`${this._baseURL}/cards/${cardId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+
+        })
+            .then(this._onResponse)
+    }
+
+    //Лайки 
+    //1. Добавление лайка
+    addLikeApi(cardId) {
+        return fetch(`${this._baseURL}/cards/likes/${cardId}`, {
+            method: "PUT",
+            headers: this._headers,
+        })
+            .then(this._onResponse)
+    }
+
+    deleteLikeApi(cardId) {
+        return fetch(`${this._baseURL}/cards/likes/${cardId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+            .then(this.onResponse)
+    }
+
+    //Аватар
+    changeAvatar(avatarSrcPopup) {
+        return fetch(`${this._baseURL}/users/me/avatar`, {
+            method: "PATCH",
+            headers: this._headers,
+            body: JSON.stringify({
+                avatar: avatarSrcPopup.value
+            }),
+        }).then(this._onResponse)
+    }
 }
 
-//Работа с карточками
-//1. Карточка
-export function getCards() {
-    return fetch(`${configApi.baseURL}/cards`, {
-        method: 'GET',
-        headers: configApi.headers
-    })
-        .then(onResponse)
-}
 
-// 2. Добавление карточки
-export function addCards(nameNewCard, linkNewCard) {
-    return fetch(`${configApi.baseURL}/cards`, {
-        method: 'POST',
-        headers: configApi.headers,
-        body: JSON.stringify({
-            name: nameNewCard.value,
-            link: linkNewCard.value,
-        }),
-    })
-        .then(onResponse)
-}
 
-//3.Удаление карточки 
-export function deleteCardsApi(cardId) {
-    return fetch(`${configApi.baseURL}/cards/${cardId}`, {
-        method: 'DELETE',
-        headers: configApi.headers,
-
-    })
-        .then(onResponse)
-}
-
-//Лайки 
-//1. Добавление лайка
-export function addLikeApi(cardId) {
-    return fetch(`${configApi.baseURL}/cards/likes/${cardId}`, {
-        method: "PUT",
-        headers: configApi.headers,
-    })
-    .then(onResponse)
-}
-    
-export function deleteLikeApi(cardId) {
-    return fetch(`${configApi.baseURL}/cards/likes/${cardId}`, {
-        method: 'DELETE',
-        headers: configApi.headers,
-    })
-        .then(onResponse)
-}
-
-//Аватар
-export function changeAvatar(avatarSrcPopup) {
-    return fetch(`${configApi.baseURL}/users/me/avatar`, {
-      method: "PATCH",
-      headers: configApi.headers,
-      body: JSON.stringify({
-        avatar: avatarSrcPopup.value
-      }),
-    }).then(onResponse)
-  }

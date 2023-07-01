@@ -1,6 +1,9 @@
 import { openPopup } from './modal.js';
-import {addLikeApi, deleteLikeApi, deleteCardsApi } from './api.js';
+import {Api, configApi} from './api.js';
+//import {addLikeApi, deleteLikeApi, deleteCardsApi } from './api.js';
 import {popupImage,imagePopupCard, titlePopupCard, cardList, cardTemplate} from './constant.js';
+
+//const api = new Api(configApi);
 
 //создание и редактировние карточки 
 function createCard(cardAdd, userId) {
@@ -52,7 +55,8 @@ const renderCardPrepend = function (elm) {
 }
 //удаление карточки ассинхрон
 function deleteCard(cardId, cardElm) {
-  deleteCardsApi(cardId)
+  api.deleteCardsApi(cardId)
+ //deleteCardsApi(cardId)
     .then(() => {
       cardElm.remove();
     })
@@ -61,7 +65,8 @@ function deleteCard(cardId, cardElm) {
 
 //добавление удаление карточки ассинхрон
 function addLike(cardId, number, likeElm) {
-  addLikeApi(cardId)
+  api.addLikeApi(cardId)
+ //addLikeApi(cardId)
     .then((elm) => {
       number.textContent = elm.likes.length;
       likeElm.classList.add("card__like-button_active");
@@ -70,7 +75,8 @@ function addLike(cardId, number, likeElm) {
 }
 
 function deleteLike(cardId, number, likeElm) {
-  deleteLikeApi(cardId)
+  api.deleteLikeApi(cardId)
+ //deleteLikeApi(cardId)
     .then((elm) => {
       number.textContent = elm.likes.length;
       likeElm.classList.remove("card__like-button_active");
