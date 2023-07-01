@@ -25,7 +25,7 @@ Promise.all([getUserInfo(), getCards()])
   .catch((err) => console.log(`Ошибка: ${err}`));
 
 
-git addCardButton.addEventListener('click', () => {
+addCardButton.addEventListener('click', () => {
   openPopup(newCardPopup);
   
   toggleButtonState(newCardFormPopup, validConfig);
